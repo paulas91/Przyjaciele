@@ -201,6 +201,8 @@ GEM
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
+    rubocop-rspec (2.15.0)
+      rubocop (~> 1.33)
     ruby-progressbar (1.11.0)
     sexp_processor (4.16.1)
     sprockets (4.1.1)
@@ -251,6 +253,7 @@ DEPENDENCIES
   rubocop
   rubocop-performance
   rubocop-rails
+  rubocop-rspec
   sprockets-rails
   stimulus-rails
   turbo-rails
