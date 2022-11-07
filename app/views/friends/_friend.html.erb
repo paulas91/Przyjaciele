@@ -1,7 +1,10 @@
-<div id="<%= dom_id friend %>">
-  <p>
-    <strong>Name:</strong>
-    <%= friend.name %>
-  </p>
 
+<div class="card" style="width: 18rem;">
+  <div class="card-header">
+    <h5><%= friend.full_name %></h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><%= friend.email %></li>
+    <li class="list-group-item"><%= friend.residence %></li>
+  </ul>
 </div>
