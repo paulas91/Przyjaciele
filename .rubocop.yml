@@ -1,0 +1,41 @@
+AllCops:
+  Exlude:
+    - 'bin/bundle'
+
+Style/Documentation:
+  Exclude:
+    - 'spec/**/*'
+    - 'test/**/*'
+    - 'app/controllers/friends_controller.rb'
+    - 'app/helpers/application_helper.rb'
+    - 'app/helpers/friends_helper.rb'
+    - 'app/models/friend.rb'
+    - 'config/application.rb'
+    - 'db/migrate/20221106181936_create_friends.rb'
+    - 'db/migrate/20221107105020_add_residence_to_friends.rb'
+    - 'bin/bundle'
+Style/IfUnlessModifier:
+  Exclude:
+    - 'bin/bundle'
+
+Metrics/BlockLength:
+  Max: 47
+
+Metrics/CyclomaticComplexity:
+  Max: 9
+
+Metrics/MethodLength:
+  Max: 12
+
+Metrics/PerceivedComplexity:
+  Max: 9
+
+Layout/LineLength:
+  Max: 198
+
+
+
+
+
+
+
