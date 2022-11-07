@@ -16,12 +16,13 @@ gem "bootsnap", require: false
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'rails_best_practices', '~> 1.23', '>= 1.23.2'
+  gem "brakeman"
 end
 
 group :development do
   gem "web-console"
   gem "hotwire-livereload"
-  gem "brakeman"
 end
 
 group :test do
