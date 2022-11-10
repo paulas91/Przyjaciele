@@ -3,7 +3,7 @@ class FriendsController < ApplicationController
   before_action :set_friend, only: %i[show edit update destroy]
 
   def index
-    @friends = Friend.all.order(:last_name)
+    @friends = Friend.all.display_order
   end
 
   def show; end

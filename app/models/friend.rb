@@ -24,6 +24,7 @@ class Friend < ApplicationRecord
   message: "format is incorect" }
 
   enum cognition: %i[school work holiday party other]
+  scope :display_order, -> { order(:last_name) }
 
   def full_name
     "#{last_name} #{first_name}"
