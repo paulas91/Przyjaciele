@@ -20,14 +20,13 @@
 class Friend < ApplicationRecord
   validates :first_name, :last_name, :email, :residence, presence: true
   validates :email, uniqueness: true
-  validates :email, format: { with: /\A[\w\.\-]+[@]\w+[.][a-zA-Z]{2,4}\z/,
-  message: "format is incorect" }
+  validates :email, format: { with: /\A[\w.\-]+@\w+[.][a-zA-Z]{2,4}\z/,
+                              message: 'format is incorect' }
 
-  enum cognition: %i[school work holiday party other]
+  enum cognition: { school: 0, work: 1, holiday: 2, party: 3, other: 4 }
   scope :display_order, -> { order(:last_name) }
 
   def full_name
     "#{last_name} #{first_name}"
   end
-
 end
