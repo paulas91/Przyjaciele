@@ -1,0 +1,11 @@
+<div class="card mb-3" style="width: 18rem;">
+  <div class="card-header">
+    <h5><%= friend.full_name.truncate(30) %></h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><strong>email:</strong> <%= friend.email.truncate(30) %></li>
+    <li class="card-body list-group-item"><strong>residence:</strong> <%= friend.residence %></li>
+    <li class="card-body list-group-item"><strong>cognition:</strong> <%= friend.cognition %></li>
+  </ul>
+</div>
+
