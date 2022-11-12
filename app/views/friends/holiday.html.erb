@@ -1,0 +1,26 @@
+<h3>Cognition on holiday</h3>
+<div id="friends", class="container-fluid">
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="col-3">Full name</th>
+        <th class="text-center col-3">Residence</th>
+        <th class="text-center col-3">Place to know</th>
+        <th class="col-3">Show</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @friends.each do |friend| %>
+        <tr>
+          <td><%= friend.full_name %></td>
+          <td class="text-center"><%= friend.residence %></td>
+          <td class="text-center"><%= friend.cognition %></td>
+          <td>
+            <%= link_to friend do %>
+              <span class="bi bi-person-check btn btn-success"></span>
+            <% end %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>

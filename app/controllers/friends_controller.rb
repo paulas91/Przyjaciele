@@ -2,10 +2,9 @@
 
 class FriendsController < ApplicationController
   before_action :set_friend, only: %i[show edit update destroy]
+  before_action :order_friends, only: %i[index school party holiday work]
 
-  def index
-    @friends = Friend.all.display_order
-  end
+  def index; end
 
   def show; end
 
@@ -50,10 +49,30 @@ class FriendsController < ApplicationController
     end
   end
 
+  def school
+    @friends = @friends.with_cognition(:school)
+  end
+
+  def work
+    @friends = @friends.with_cognition(:work)
+  end
+
+  def party
+    @friends = @friends.with_cognition(:party)
+  end
+
+  def holiday
+    @friends = @friends.with_cognition(:holiday)
+  end
+
   private
 
   def set_friend
     @friend = Friend.find(params[:id])
+  end
+
+  def order_friends
+    @friends = Friend.all.display_order
   end
 
   def friend_params

@@ -25,6 +25,7 @@ class Friend < ApplicationRecord
 
   enum cognition: { school: 0, work: 1, holiday: 2, party: 3, other: 4 }
   scope :display_order, -> { order(:last_name) }
+  scope :with_cognition, ->(cognition) { where(cognition: cognitions[cognition]) }
 
   def full_name
     "#{last_name} #{first_name}"
