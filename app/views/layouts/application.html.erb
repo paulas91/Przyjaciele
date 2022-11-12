@@ -15,14 +15,14 @@
   <body class="container">
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
-        <p class="navbar-brand">Friends</p>
+        <p class="navbar-brand"><%= app_title %></p>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <%= link_to "All", root_path, class: ["nav-link", ("active" if current_page?(root_path))] %>
-            <%= link_to "School", school_friends_path, class: ["nav-link", ("active" if current_page?(school_friends_path))] %>
-            <%= link_to "Work", work_friends_path, class: ["nav-link", ("active" if current_page?(work_friends_path))] %>
-            <%= link_to "Holiday", holiday_friends_path, class: ["nav-link", ("active" if current_page?(holiday_friends_path))] %>
-            <%= link_to "Party", party_friends_path, class: ["nav-link", ("active" if current_page?(party_friends_path))] %>
+            <%= render 'shared/nav_link', label: "All", path: root_path %>
+            <%= render 'shared/nav_link', label: "School", path: school_friends_path %>
+            <%= render 'shared/nav_link', label: "Work", path: work_friends_path %>
+            <%= render 'shared/nav_link', label: "Holiday", path: holiday_friends_path %>
+            <%= render 'shared/nav_link', label: "Party", path: party_friends_path %>
           </div>
         </div>
       </div>
