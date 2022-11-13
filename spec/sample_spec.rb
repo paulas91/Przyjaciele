@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 describe 'sample spec' do
   it 'true is true' do
