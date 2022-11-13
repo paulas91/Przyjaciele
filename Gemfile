@@ -34,4 +34,5 @@ group :development do
 end
 
 group :test do
+  gem 'rspec-rails', '~> 6.0', '>= 6.0.1'
 end
