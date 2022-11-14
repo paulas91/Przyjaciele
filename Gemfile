@@ -17,9 +17,9 @@ gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
-  gem 'faker'
   gem 'brakeman'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'faker'
   gem 'rails_best_practices', '~> 1.23', '>= 1.23.2'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
@@ -34,8 +34,8 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-rails', '~> 6.0', '>= 6.0.1'
-  gem 'factory_bot_rails'
-  gem 'shoulda-matchers', '~> 5.0'
   gem 'database_cleaner-active_record'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails', '~> 6.0', '>= 6.0.1'
+  gem 'shoulda-matchers', '~> 5.0'
 end
