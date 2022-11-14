@@ -17,6 +17,7 @@ gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
+  gem 'faker'
   gem 'brakeman'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rails_best_practices', '~> 1.23', '>= 1.23.2'
@@ -28,7 +29,6 @@ end
 
 group :development do
   gem 'annotate'
-  gem 'faker'
   gem 'hotwire-livereload'
   gem 'web-console'
 end
