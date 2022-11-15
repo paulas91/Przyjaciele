@@ -24,6 +24,7 @@ class Friend < ApplicationRecord
                               message: 'format is incorect' }
 
   enum cognition: { school: 0, work: 1, holiday: 2, party: 3, other: 4 }
+  validates :cognition, inclusion: { in: cognitions.keys }
   scope :display_order, -> { order(:last_name) }
   scope :with_cognition, ->(cognition) { where(cognition: cognitions[cognition]) }
 
