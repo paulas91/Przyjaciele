@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MyLogger
   attr_reader :messages
 
@@ -13,11 +15,11 @@ class MyLogger
   def messages_count
     @messages.count
   end
-
 end
 
 describe MyLogger do
   subject(:logger) { described_class.new }
+
   let(:message1) { 'Hello World' }
   let(:message2) { 'Ruby is awesome' }
 
@@ -27,7 +29,7 @@ describe MyLogger do
   end
 
   context 'for logging' do
-    let(:message1) { 'Other message'}
+    let(:message1) { 'Other message' }
 
     before do
       logger.log(message1)
@@ -40,20 +42,18 @@ describe MyLogger do
     end
 
     it 'adds message to messages array2' do
-      #ARRANGE
+      # ARRANGE
       message1 = 'Hello world'
       message1 = 'Ruby is awesome'
-      logger = MyLogger.new
+      logger = described_class.new
 
-
-      #ACT
+      # ACT
       logger.log(message1)
       logger.log(message2)
 
-      #ASSERT
+      # ASSERT
       expect(logger.messages).to include message1
       expect(logger.messages).to include message2
-
     end
 
     it 'returns messages count' do
