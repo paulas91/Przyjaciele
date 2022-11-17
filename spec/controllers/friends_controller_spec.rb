@@ -34,11 +34,16 @@ describe FriendsController, type: :controller do
   end
 
   describe 'POST #create' do
-    let(:friend) { build(:friend) }
+    let(:friend_attributes) { attributes_for(:friend) }
 
     it 'returns http redirect' do
-      post :create, params: { friend: friend.attributes }
+      post :create, params: { friend: friend_attributes }
       expect(response).to have_http_status(:found)
+    end
+
+    it 'returns status unprocessable_entity' do
+      post :create, params: { friend: { first_name: nil, last_name: nil, email: nil, residence: nil, cognition: nil } }
+      expect(response).to have_http_status(:unprocessable_entity)
     end
   end
 
@@ -49,6 +54,11 @@ describe FriendsController, type: :controller do
     it 'returns http redirect' do
       put :update, params: { id: friend.id, friend: new_attributes }
       expect(response).to have_http_status(:found)
+    end
+
+    it 'returns status unprocessable_entity' do
+      put :update, params: { id: friend.id, friend: { first_name: nil, last_name: nil, email: nil, residence: nil, cognition: nil } }
+      expect(response).to have_http_status(:unprocessable_entity)
     end
   end
 
