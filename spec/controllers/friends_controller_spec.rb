@@ -80,6 +80,10 @@ describe FriendsController, type: :controller do
       post :create, params: { friend: { first_name: nil, last_name: nil, email: nil, residence: nil, cognition: nil } }
       expect(response).to have_http_status(:unprocessable_entity)
     end
+
+    it 'creates a new friend' do
+      expect { create_request }.to change(Friend, :count).by(1)
+    end
   end
 
   describe 'PUT #update' do
@@ -102,12 +106,16 @@ describe FriendsController, type: :controller do
       put :update, params: { id: friend.id, friend: { first_name: nil, last_name: nil, email: nil, residence: nil, cognition: nil } }
       expect(response).to have_http_status(:unprocessable_entity)
     end
+
+    it 'updates the friend' do
+      expect { update_request }.to change { friend.reload.first_name }.to(new_attributes[:first_name])
+    end
   end
 
   describe 'DELETE #destroy' do
     subject(:destroy_request) { delete :destroy, params: { id: friend.id } }
 
-    let(:friend) { create(:friend) }
+    let!(:friend) { create(:friend) }
 
     it 'returns http redirect' do
       destroy_request
@@ -117,6 +125,10 @@ describe FriendsController, type: :controller do
     it 'redirects to the friends index' do
       destroy_request
       expect(response).to redirect_to(friends_path)
+    end
+
+    it 'deletes the friend' do
+      expect { destroy_request }.to change(Friend, :count).by(-1)
     end
   end
 
