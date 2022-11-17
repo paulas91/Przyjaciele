@@ -2,34 +2,62 @@
 
 describe FriendsController, type: :controller do
   describe 'GET #index' do
+    subject(:index_request) { get :index }
+
     it 'returns http success' do
-      get :index
+      index_request
       expect(response).to have_http_status(:ok)
+    end
+
+    it 'renders the index template' do
+      index_request
+      expect(response).to render_template('index')
     end
   end
 
   describe 'GET #show' do
+    subject(:show_request) { get :show, params: { id: friend.id } }
+
     let(:friend) { create(:friend) }
 
     it 'returns http succes' do
-      get :show, params: { id: friend.id }
+      show_request
       expect(response).to have_http_status(:ok)
+    end
+
+    it 'renders the show template' do
+      show_request
+      expect(response).to render_template('show')
     end
   end
 
   describe 'GET #new' do
+    subject(:new_request) { get :new }
+
     it 'returns http succes' do
-      get :new
+      new_request
       expect(response).to have_http_status(:ok)
+    end
+
+    it 'renders the new template' do
+      new_request
+      expect(response).to render_template('new')
     end
   end
 
   describe 'GET #edit' do
+    subject(:edit_request) { get :edit, params: { id: friend.id } }
+
     let(:friend) { create(:friend) }
 
     it 'returns http succes' do
-      get :edit, params: { id: friend.id }
+      edit_request
       expect(response).to have_http_status(:ok)
+    end
+
+    it 'renders the edit template' do
+      edit_request
+      expect(response).to render_template('edit')
     end
   end
 
@@ -72,30 +100,58 @@ describe FriendsController, type: :controller do
   end
 
   describe 'GET #school' do
+    subject(:school_request) { get :school }
+
     it 'returns http success' do
-      get :school
+      school_request
       expect(response).to have_http_status(:ok)
+    end
+
+    it 'renders the school template' do
+      school_request
+      expect(response).to render_template('school')
     end
   end
 
   describe 'GET #work' do
+    subject(:work_request) { get :work }
+
     it 'returns http success' do
-      get :work
+      work_request
       expect(response).to have_http_status(:ok)
+    end
+
+    it 'renders the work template' do
+      work_request
+      expect(response).to render_template('work')
     end
   end
 
   describe 'GET #party' do
+    subject(:party_request) { get :party }
+
     it 'returns http success' do
-      get :party
+      party_request
       expect(response).to have_http_status(:ok)
+    end
+
+    it 'renders the party template' do
+      party_request
+      expect(response).to render_template('party')
     end
   end
 
   describe 'GET #holiday' do
+    subject(:holiday_request) { get :holiday }
+
     it 'returns http success' do
-      get :holiday
+      holiday_request
       expect(response).to have_http_status(:ok)
+    end
+
+    it 'renders the holiday template' do
+      holiday_request
+      expect(response).to render_template('holiday')
     end
   end
 end
