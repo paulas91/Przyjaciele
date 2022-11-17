@@ -62,11 +62,18 @@ describe FriendsController, type: :controller do
   end
 
   describe 'POST #create' do
+    subject(:create_request) { post :create, params: { friend: friend_attributes } }
+
     let(:friend_attributes) { attributes_for(:friend) }
 
     it 'returns http redirect' do
-      post :create, params: { friend: friend_attributes }
+      create_request
       expect(response).to have_http_status(:found)
+    end
+
+    it 'redirects to new friend' do
+      create_request
+      expect(response).to redirect_to(friend_path(Friend.last))
     end
 
     it 'returns status unprocessable_entity' do
@@ -76,12 +83,19 @@ describe FriendsController, type: :controller do
   end
 
   describe 'PUT #update' do
+    subject(:update_request) { put :update, params: { id: friend.id, friend: new_attributes } }
+
     let(:friend) { create(:friend) }
     let(:new_attributes) { attributes_for(:friend) }
 
     it 'returns http redirect' do
-      put :update, params: { id: friend.id, friend: new_attributes }
+      update_request
       expect(response).to have_http_status(:found)
+    end
+
+    it 'redirects to updated friend' do
+      update_request
+      expect(response).to redirect_to(friend_path(friend))
     end
 
     it 'returns status unprocessable_entity' do
@@ -91,11 +105,18 @@ describe FriendsController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
+    subject(:destroy_request) { delete :destroy, params: { id: friend.id } }
+
     let(:friend) { create(:friend) }
 
     it 'returns http redirect' do
-      delete :destroy, params: { id: friend.id }
+      destroy_request
       expect(response).to have_http_status(:found)
+    end
+
+    it 'redirects to the friends index' do
+      destroy_request
+      expect(response).to redirect_to(friends_path)
     end
   end
 
