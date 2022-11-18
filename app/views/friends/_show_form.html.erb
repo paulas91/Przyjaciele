@@ -3,9 +3,9 @@
     <h5><%= friend.full_name.truncate(30) %></h5>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item"><strong>email:</strong> <%= friend.email.truncate(30) %></li>
-    <li class="card-body list-group-item"><strong>residence:</strong> <%= friend.residence %></li>
-    <li class="card-body list-group-item"><strong>cognition:</strong> <%= friend.cognition %></li>
+    <li class="list-group-item" id="email" ><strong>email:</strong> <%= friend.email.truncate(30) %></li>
+    <li class="card-body list-group-item" id="residence"><strong>residence:</strong> <%= friend.residence %></li>
+    <li class="card-body list-group-item" id="cognition"><strong>cognition:</strong> <%= friend.cognition %></li>
   </ul>
 </div>
 
