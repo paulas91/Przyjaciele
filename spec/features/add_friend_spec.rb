@@ -22,10 +22,10 @@ describe 'Add new friend' do
     expect(email).to eq 'email: oliwka@gmail.com'
     expect(residence).to eq 'residence: Kos'
     expect(cognition).to eq 'cognition: holiday'
-    items = all('.list-group-item')
-    expect(items[0]).to have_content('email: oliwka@gmail.com')
-    expect(items[1]).to have_content('residence: Kos')
-    expect(items[2]).to have_content('cognition: holiday')
+    # items = all('.list-group-item')
+    # expect(items[0]).to have_content('email: oliwka@gmail.com')
+    # expect(items[1]).to have_content('residence: Kos')
+    # expect(items[2]).to have_content('cognition: holiday')
 
   click_link 'Back to friends'
   expect(page).to have_content('Oliwna Oliwka')
