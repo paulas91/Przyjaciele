@@ -20,6 +20,7 @@ group :development, :test do
   gem 'brakeman'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'faker'
+  gem 'pry'
   gem 'rails_best_practices', '~> 1.23', '>= 1.23.2'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
