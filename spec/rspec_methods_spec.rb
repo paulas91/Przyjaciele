@@ -12,9 +12,9 @@ describe Friend do
   context 'when first name not passed' do
     it 'does not create friend' do
       friend = described_class.create(first_name: '',
-                                       last_name: 'Lola',
-                                       residence: 'Kraków',
-                                       cognition: described_class.cognitions[:school])
+                                      last_name: 'Lola',
+                                      residence: 'Kraków',
+                                      cognition: described_class.cognitions[:school])
       expect(described_class.count).to eq 0
     end
   end
