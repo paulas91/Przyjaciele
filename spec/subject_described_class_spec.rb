@@ -28,7 +28,7 @@ describe MyLogger do
     expect(logged_message).to include 'Hello World'
   end
 
-  context 'for logging' do
+  context 'with logging' do
     let(:message1) { 'Other message' }
 
     before do
@@ -43,7 +43,7 @@ describe MyLogger do
 
     it 'adds message to messages array2' do
       # ARRANGE
-      message1 = 'Hello world'
+      message2 = 'Hello world'
       message1 = 'Ruby is awesome'
       logger = described_class.new
 

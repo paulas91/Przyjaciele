@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-def sum(number_1, number_2)
-  number_1 + number_2
+def sum(number1, number2)
+  number1 + number2
 end
 
 describe 'test sum' do

@@ -25,7 +25,7 @@ describe 'check navbar links' do
     expect(page).to have_content('Cognition on party')
   end
 
-  it 'check party link' do
+  it 'check All link' do
     click_link 'All'
     expect(page).to have_xpath('/')
   end
