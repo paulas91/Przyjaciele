@@ -1,0 +1,26 @@
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <li class="nav-item text-success list-unstyled">
+      <%= current_user.email %>
+    </li>
+    <ul class="navbar-nav me-auto mb-3 mb-lg-0">
+      <li class="nav-item">
+        <%= render 'shared/nav_link', label: "All", path: root_path %>
+      </li>
+      <li class="nav-item">
+        <%= render 'shared/nav_link', label: "School", path: school_friends_path %>
+      </li>
+      <li class="nav-item">
+        <%= render 'shared/nav_link', label: "Work", path: work_friends_path %>
+      </li>
+      <li class="nav-item">
+        <%= render 'shared/nav_link', label: "Holiday", path: holiday_friends_path %>
+      </li>
+      <li class= "nav-item">
+        <%= render 'shared/nav_link', label: "Party", path: party_friends_path %>
+      </li>
+    </ul>
+    <p class="d-flex btn btn-outline-success" >
+      <%= link_to "log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link" %>
+    </p>
+  </div>
+
