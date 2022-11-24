@@ -12,10 +12,15 @@
 #  residence  :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
 #
 # Indexes
 #
 #  index_friends_on_email  (email) UNIQUE
+#
+# Foreign Keys
+#
+#  fk_rails_...  (user_id => users.id)
 #
 class Friend < ApplicationRecord
   validates :first_name, :last_name, :email, :residence, presence: true
@@ -27,7 +32,7 @@ class Friend < ApplicationRecord
   validates :cognition, inclusion: { in: cognitions.keys }
   scope :display_order, -> { order(:last_name) }
   scope :with_cognition, ->(cognition) { where(cognition: cognitions[cognition]) }
-
+  belongs_to :user
   def full_name
     "#{last_name} #{first_name}"
   end

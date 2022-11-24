@@ -12,10 +12,15 @@
 #  residence  :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
 #
 # Indexes
 #
 #  index_friends_on_email  (email) UNIQUE
+#
+# Foreign Keys
+#
+#  fk_rails_...  (user_id => users.id)
 #
 describe Friend, type: :model do
   describe 'columns' do
