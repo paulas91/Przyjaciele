@@ -5,7 +5,7 @@ class FriendsController < ApplicationController
   before_action :set_friend, only: %i[show edit update destroy]
   before_action :order_friends, only: %i[index school party holiday work]
 
-  def index;end
+  def index; end
 
   def show; end
 
