@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :friend do
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
-    email { 'paulina@gmail.com' }
+    email { Faker::Internet.email }
     residence { Faker::Address.city }
     cognition { :school }
   end
