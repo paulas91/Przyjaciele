@@ -2,7 +2,7 @@
 
 describe 'Update friend' do
   let(:user) { create(:user) }
-  let(:friend) { create(:friend, user: user) }
+  let(:friend) { create(:friend, user:) }
   let(:new_attributes) { attributes_for(:friend) }
 
   before do

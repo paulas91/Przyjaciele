@@ -2,7 +2,8 @@
 
 describe 'check show' do
   let(:user) { create(:user) }
-  let(:friend) { create(:friend, user: user) }
+  let(:friend) { create(:friend, user:) }
+
   before do
     login_as user
     friend
