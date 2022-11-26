@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 describe FriendsController, type: :controller do
+  let(:user) { create(:user) }
+
+  before do
+    sign_in user
+  end
+
   describe 'GET #index' do
     subject(:index_request) { get :index }
 
@@ -18,7 +24,7 @@ describe FriendsController, type: :controller do
   describe 'GET #show' do
     subject(:show_request) { get :show, params: { id: friend.id } }
 
-    let(:friend) { create(:friend) }
+    let(:friend) { create(:friend, user: user) }
 
     it 'returns http succes' do
       show_request
@@ -48,7 +54,7 @@ describe FriendsController, type: :controller do
   describe 'GET #edit' do
     subject(:edit_request) { get :edit, params: { id: friend.id } }
 
-    let(:friend) { create(:friend) }
+    let(:friend) { create(:friend, user: user) }
 
     it 'returns http succes' do
       edit_request
@@ -89,7 +95,7 @@ describe FriendsController, type: :controller do
   describe 'PUT #update' do
     subject(:update_request) { put :update, params: { id: friend.id, friend: new_attributes } }
 
-    let(:friend) { create(:friend) }
+    let(:friend) { create(:friend, user: user) }
     let(:new_attributes) { attributes_for(:friend) }
 
     it 'returns http redirect' do
@@ -115,7 +121,7 @@ describe FriendsController, type: :controller do
   describe 'DELETE #destroy' do
     subject(:destroy_request) { delete :destroy, params: { id: friend.id } }
 
-    let!(:friend) { create(:friend) }
+    let!(:friend) { create(:friend, user: user) }
 
     it 'returns http redirect' do
       destroy_request

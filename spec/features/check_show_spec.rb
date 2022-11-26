@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 describe 'check show' do
-  let(:friend) { create(:friend) }
-
+  let(:user) { create(:user) }
+  let(:friend) { create(:friend, user: user) }
   before do
+    login_as user
     friend
     visit '/'
   end
