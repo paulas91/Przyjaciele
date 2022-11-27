@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 describe 'check navbar links' do
+  let(:user) { create(:user) }
+
   before do
+    login_as user
     visit '/'
   end
 
@@ -25,7 +28,7 @@ describe 'check navbar links' do
     expect(page).to have_content('Cognition on party')
   end
 
-  it 'check party link' do
+  it 'check All link' do
     click_link 'All'
     expect(page).to have_xpath('/')
   end

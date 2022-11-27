@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class FriendsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_friend, only: %i[show edit update destroy]
   before_action :order_friends, only: %i[index school party holiday work]
 
@@ -9,13 +10,13 @@ class FriendsController < ApplicationController
   def show; end
 
   def new
-    @friend = Friend.new
+    @friend = current_user.friends.build
   end
 
   def edit; end
 
   def create
-    @friend = Friend.new(friend_params)
+    @friend = current_user.friends.new(friend_params)
 
     respond_to do |format|
       if @friend.save
@@ -68,11 +69,11 @@ class FriendsController < ApplicationController
   private
 
   def set_friend
-    @friend = Friend.find(params[:id])
+    @friend = current_user.friends.find(params[:id])
   end
 
   def order_friends
-    @friends = Friend.all.display_order
+    @friends = current_user.friends.display_order
   end
 
   def friend_params

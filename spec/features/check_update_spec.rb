@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 describe 'Update friend' do
-  let(:friend) { create(:friend) }
+  let(:user) { create(:user) }
+  let(:friend) { create(:friend, user:) }
   let(:new_attributes) { attributes_for(:friend) }
 
   before do
+    login_as user
     friend
     visit "/friends/#{friend.id}"
   end

@@ -1,5 +1,10 @@
+# frozen_string_literal: true
+
 describe 'Add new friend' do
+  let(:user) { create(:user) }
+
   before do
+    login_as user
     visit '/'
   end
 
@@ -27,10 +32,8 @@ describe 'Add new friend' do
     # expect(items[1]).to have_content('residence: Kos')
     # expect(items[2]).to have_content('cognition: holiday')
 
-  click_link 'Back to friends'
-  expect(page).to have_content('Oliwna Oliwka')
-  expect(page).to have_content('holiday')
+    click_link 'Back to friends'
+    expect(page).to have_content('Oliwna Oliwka')
+    expect(page).to have_content('holiday')
   end
 end
-
-

@@ -13,18 +13,24 @@
   </head>
 
   <body class="container">
+    <% if notice %>
+      <p class="notice" style="color: green"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert" style="color: red"><%= alert %></p>
+    <% end %>
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
-        <p class="navbar-brand"><%= app_title %></p>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <%= render 'shared/nav_link', label: "All", path: root_path %>
-            <%= render 'shared/nav_link', label: "School", path: school_friends_path %>
-            <%= render 'shared/nav_link', label: "Work", path: work_friends_path %>
-            <%= render 'shared/nav_link', label: "Holiday", path: holiday_friends_path %>
-            <%= render 'shared/nav_link', label: "Party", path: party_friends_path %>
+        <p class="navbar-brand mb-0"><%= app_title %></p>
+        <% if user_signed_in? %>
+          <%= render 'shared/navbar' %>
+        <% else %>
+          <div class="navbar-nav" >
+            <li class="nav-item btn btn-outline-secondary">
+              <%= link_to "Log in", new_user_session_path, class: 'nav-link' %>
+            </li>
           </div>
-        </div>
+        <% end %>
       </div>
     </nav>
     <%= yield %>

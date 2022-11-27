@@ -6,18 +6,6 @@ AllCops:
   Exlude:
     - 'bin/bundle'
 
-Style/Documentation:
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'app/controllers/friends_controller.rb'
-    - 'app/helpers/application_helper.rb'
-    - 'app/helpers/friends_helper.rb'
-    - 'app/models/friend.rb'
-    - 'config/application.rb'
-    - 'db/migrate/20221106181936_create_friends.rb'
-    - 'db/migrate/20221107105020_add_residence_to_friends.rb'
-    - 'bin/bundle'
 Style/IfUnlessModifier:
   Exclude:
     - 'bin/bundle'
@@ -29,13 +17,41 @@ Metrics/CyclomaticComplexity:
   Max: 9
 
 Metrics/MethodLength:
-  Max: 12
+  Max: 20
 
 Metrics/PerceivedComplexity:
   Max: 9
 
 Layout/LineLength:
   Max: 198
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/DescribeClass:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - 'lib/tasks/**/*'
+
+RSpec/FilePath:
+  Exclude:
+    - 'spec/rspec_methods_spec.rb'
+    - 'spec/subject_described_class_spec.rb'
+
+RSpec/ExpectActual:
+  Enabled: false
+
+Rails/FilePath:
+  Enabled: false
 
 
 
